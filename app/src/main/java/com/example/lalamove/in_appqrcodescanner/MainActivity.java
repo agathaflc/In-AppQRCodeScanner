@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             formatTxt.setText("FORMAT: " + scanFormat);
             contentTxt.setText("CONTENT: " + scanContent);
 
-            // JSON part
+            // retrieving JSON part
             try {
                 JSONObject jObject = new JSONObject(scanContent);
                 String driverId = jObject.getString("id");
