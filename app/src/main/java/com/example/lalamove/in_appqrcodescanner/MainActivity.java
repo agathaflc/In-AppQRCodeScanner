@@ -2,17 +2,21 @@ package com.example.lalamove.in_appqrcodescanner;
 
 // http://code.tutsplus.com/tutorials/android-sdk-create-a-barcode-reader--mobile-17162
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
@@ -46,6 +50,29 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             String scanFormat = scanningResult.getFormatName();
             formatTxt.setText("FORMAT: " + scanFormat);
             contentTxt.setText("CONTENT: " + scanContent);
+
+            // JSON part
+            try {
+                JSONObject jObject = new JSONObject(scanContent);
+                String driverId = jObject.getString("id");
+                String driverName = jObject.getString("name");
+                String driverLicenseNo = jObject.getString("license");
+
+                EditText etId = (EditText) findViewById(R.id.etDriverId);
+                EditText etName = (EditText) findViewById(R.id.etDriverName);
+                EditText etLicense = (EditText) findViewById(R.id.etLicense);
+
+                etId.setText(driverId);
+                etName.setText(driverName);
+                etLicense.setText(driverLicenseNo);
+
+            }
+            catch (JSONException e)
+            {
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "JSON error!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
         }
         else
         {

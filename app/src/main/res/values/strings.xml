@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">In-App QR Code Scanner</string>
     <string name="scan">Scan</string>
+    <string name="driver_id">Driver ID</string>
+    <string name="driver_name">Driver name</string>
+    <string name="license_number">License number</string>
 </resources>
