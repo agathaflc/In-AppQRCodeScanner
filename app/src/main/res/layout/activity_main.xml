@@ -34,32 +34,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etDriverId"
+        android:layout_marginLeft="@dimen/edit_text_left_margin"
         android:layout_below="@+id/scan_content"
+        android:layout_toRightOf="@id/ivIdIcon"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:hint="@string/driver_id" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etDriverName"
+        android:layout_marginLeft="@dimen/edit_text_left_margin"
         android:layout_below="@+id/etDriverId"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_toRightOf="@id/ivNameIcon"
         android:hint="@string/driver_name" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etLicense"
+        android:layout_marginLeft="@dimen/edit_text_left_margin"
         android:layout_below="@+id/etDriverName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@id/ivLicenseIcon"
+        android:hint="@string/license_number" />
+
+    <ImageView
+        android:layout_width="@dimen/icon_width"
+        android:layout_height="@dimen/icon_height"
+        android:id="@+id/ivIdIcon"
+        android:layout_alignTop="@id/etDriverId"
+        android:layout_alignBottom="@id/etDriverId"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="@string/license_number" />
+        android:src="@drawable/idIcon" />
+
+    <ImageView
+        android:layout_width="@dimen/icon_width"
+        android:layout_height="@dimen/icon_height"
+        android:id="@+id/ivNameIcon"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@id/etDriverName"
+        android:layout_alignBottom="@id/etDriverName"
+        android:src="@drawable/nameIcon" />
+
+    <ImageView
+        android:layout_width="@dimen/icon_width"
+        android:layout_height="@dimen/icon_height"
+        android:id="@+id/ivLicenseIcon"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@id/etLicense"
+        android:layout_alignBottom="@id/etLicense"
+        android:src="@drawable/licenseIcon"/>
 </RelativeLayout>
